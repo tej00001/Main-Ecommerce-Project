@@ -10,3 +10,8 @@
 .cart{
     font-weight: bold;
 }
+.span{
+    display: grid;
+    color: rgb(11, 235, 71);
+    font-size:medium;
+}

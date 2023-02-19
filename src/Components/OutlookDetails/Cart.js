@@ -1,41 +1,19 @@
-import { useState } from "react";
-import { Button, Modal, Table } from "react-bootstrap";
+import { useContext, useState } from "react";
+import { Button, Modal, ModalBody, Table } from "react-bootstrap";
 import classes from "./Cart.module.css";
+import CartContext from "../Context/Cart-Context";
 
-const cartElements = [
-  {
-    title: "Colors",
+const CartItem = () => {
+  const cartcntx = useContext(CartContext);
 
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-    quantity: 2,
-  },
-
-  {
-    title: "Black and white Colors",
-
-    price: 50,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-    quantity: 3,
-  },
-
-  {
-    title: "Yellow and Black Colors",
-
-    price: 70,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-    quantity: 1,
-  },
-];
-const CartItem = (props) => {
-  const [cartItem, setCartItem] = useState(cartElements);
   const [showItems, setShowItems] = useState(false);
+
+  let Count = 0;
+  cartcntx.cartList.map((item) => {
+    Count += item.quantity;
+    return item;
+  });
+
   const ShowHandler = () => {
     setShowItems(true);
   };
@@ -51,8 +29,10 @@ const CartItem = (props) => {
         onClick={ShowHandler}
       >
         Cart
+        <span className={classes.span}>
+          {Count}
+        </span>
       </Button>
-
       <Modal show={showItems} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title className={classes.cart}>CartList</Modal.Title>
@@ -60,7 +40,7 @@ const CartItem = (props) => {
             X
           </Button>
         </Modal.Header>
-        <Modal.Body>
+        <ModalBody>
           <Table>
             <thead>
               <tr>
@@ -70,7 +50,7 @@ const CartItem = (props) => {
               </tr>
             </thead>
             <tbody>
-              {cartItem.map((item, id) => (
+              {cartcntx.cartList.map((item, id) => (
                 <tr key={id}>
                   <td>
                     <img
@@ -90,7 +70,8 @@ const CartItem = (props) => {
               ))}
             </tbody>
           </Table>
-        </Modal.Body>
+          <Button className="justify-content-right btn-light btn-outline-success">PURCHASE</Button>
+        </ModalBody>
       </Modal>
     </>
   );

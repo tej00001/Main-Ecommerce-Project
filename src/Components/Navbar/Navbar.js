@@ -1,6 +1,7 @@
+import React from "react";
 import { Container, Navbar } from "react-bootstrap";
 import CartItem from "../OutlookDetails/Cart";
-const NavbarList = (props) => {
+const NavbarList = () => {
   return (
     <>
       <Navbar bg="black" expand="sm" variant="dark" sticky="top">
