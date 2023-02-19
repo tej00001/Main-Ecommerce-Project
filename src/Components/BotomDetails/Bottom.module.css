@@ -1,0 +1,21 @@
+.items {
+  align-items: center;
+  background-color: #37c2f1;
+  padding: 10px;
+}
+
+.items span {
+  font-size: 50px;
+  flex-basis: 65%;
+  margin-left: 120px;
+  margin-right: 350px;
+  color: white;
+  font-weight: bold;
+}
+
+.items img {
+  height: 40px;
+  width: 40px;
+  border-radius: 10%;
+  margin: 30px;
+}

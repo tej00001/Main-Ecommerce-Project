@@ -1,0 +1,32 @@
+.title {
+  flex-basis: 40%;
+  margin-bottom: 50px;
+}
+
+.title h1 {
+  color: red;
+  font-size: 60px;
+  font-family: Georgia;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2pc;
+}
+
+.title p {
+  height: 150px;
+  background-color: grey;
+  color: white;
+  font-size: 100px;
+  font-family: "sans-serif";
+  text-align: center;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  transform-origin: center center;
+  object-fit: cover;
+  justify-content: center;
+  margin: auto;
+}
