@@ -1,6 +1,6 @@
-import { Container, Navbar, Button } from "react-bootstrap";
-
-const NavbarList = () => {
+import { Container, Navbar } from "react-bootstrap";
+import CartItem from "../OutlookDetails/Cart";
+const NavbarList = (props) => {
   return (
     <>
       <Navbar bg="black" expand="sm" variant="dark" sticky="top">
@@ -9,9 +9,7 @@ const NavbarList = () => {
           <Navbar.Brand href="#store">STORE</Navbar.Brand>
           <Navbar.Brand href="#about">ABOUT</Navbar.Brand>
         </Container>
-        <Button className="justify-content-end me-4 btn btn-dark btn-outline-warning text-white">
-          Cart
-        </Button>
+        <CartItem />
       </Navbar>
     </>
   );
