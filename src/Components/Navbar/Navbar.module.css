@@ -1,13 +1,11 @@
 .font {
-  font-family: "Calibri";
-  font-weight: 500;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   text-align: center;
   margin-left: 80px;
   font-size: larger;
 }
 .title {
   flex-basis: 40%;
-  margin-bottom: 50px;
 }
 
 .title p {
@@ -17,4 +15,5 @@
   font-size: 100px;
   font-family: "sans-serif";
   text-align: center;
+  margin:0px;
 }

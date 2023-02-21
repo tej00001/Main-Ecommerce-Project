@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { Container, Button } from "react-bootstrap";
 import TopDetails from "./Components/OutlookDetails/TopDetails";
 import NavbarList from "./Components/Navbar/Navbar";
 import FooterDetails from "./Components/BotomDetails/Bottom";
 //import classes from "./App.module.css";
 import CartContext from "./Components/Context/Cart-Context";
 import About from "./Components/Pages/About";
+import Home from "./Components/Pages/Home";
 import { Route, Switch } from "react-router-dom";
 
 const App = () => {
@@ -16,13 +16,17 @@ const App = () => {
     <Switch>
       <CartContext.Provider value={{ cartList, setCartList }}>
         <NavbarList />
+        <Route exact path="/HOME">
+          <Home />
+        </Route>
         <Route exact path="/STORE">
           <TopDetails />
+          <FooterDetails />
         </Route>
         <Route exact path="/ABOUT">
           <About />
+          <FooterDetails />
         </Route>
-        <FooterDetails />
       </CartContext.Provider>
     </Switch>
   );
