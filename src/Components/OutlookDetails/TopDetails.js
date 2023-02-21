@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import classes from "./TopDetails.module.css";
 import ProductList from "./ProductList";
 
@@ -49,12 +49,12 @@ const TopDetails = () => {
   return (
     <>
       <div className={classes.title}>
-        <Card className="shadow-lg">
-          <p>The Generics</p>
-        </Card>
         <h1>Music</h1>
         <span className={classes.products}>{ProductsDetails}</span>
       </div>
+      <Container className={classes.button}>
+        <Button className="btn-dark btn-outline-warning ">See the Cart</Button>
+      </Container>
     </>
   );
 };
