@@ -8,6 +8,7 @@ import CartContext from "./Components/Context/Cart-Context";
 import About from "./Components/Pages/About";
 import Home from "./Components/Pages/Home";
 import { Route, Switch } from "react-router-dom";
+import ContactUs from "./Components/Pages/ContactUs";
 
 const App = () => {
   const [cartList, setCartList] = useState([]);
@@ -25,6 +26,10 @@ const App = () => {
         </Route>
         <Route exact path="/ABOUT">
           <About />
+          <FooterDetails />
+        </Route>
+        <Route exact path="/Contactus">
+          <ContactUs />
           <FooterDetails />
         </Route>
       </CartContext.Provider>

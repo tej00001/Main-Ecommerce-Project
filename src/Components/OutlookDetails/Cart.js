@@ -28,10 +28,8 @@ const CartItem = () => {
         className="justify-content-end me-4 btn btn-dark btn-outline-warning text-white"
         onClick={ShowHandler}
       >
-        Cart
-        <span className={classes.span}>
-          {Count}
-        </span>
+        Cart-
+        {Count}
       </Button>
       <Modal show={showItems} onHide={handleClose}>
         <Modal.Header>
@@ -70,7 +68,9 @@ const CartItem = () => {
               ))}
             </tbody>
           </Table>
-          <Button className="justify-content-right btn-light btn-outline-success">PURCHASE</Button>
+          <Button className="justify-content-right btn-light btn-outline-success">
+            PURCHASE
+          </Button>
         </ModalBody>
       </Modal>
     </>

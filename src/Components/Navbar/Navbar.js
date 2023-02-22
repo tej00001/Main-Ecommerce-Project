@@ -33,6 +33,13 @@ const NavbarList = () => {
             >
               ABOUT
             </NavLink>
+            <NavLink
+              to="/Contactus"
+              className={classes.font}
+              style={{ color: "white" }}
+            >
+              CONTACT-US
+            </NavLink>
           </Nav>
         </Container>
         <CartItem />
