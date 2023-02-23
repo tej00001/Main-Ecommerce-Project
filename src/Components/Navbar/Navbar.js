@@ -16,7 +16,11 @@ const NavbarList = () => {
       >
         <Container className="justify-content-center ">
           <Nav>
-            <NavLink to="/Home" className={classes.font} style={{ color: "white" }}>
+            <NavLink
+              to="/Home"
+              className={classes.font}
+              style={{ color: "white" }}
+            >
               HOME
             </NavLink>
             <NavLink
@@ -45,7 +49,7 @@ const NavbarList = () => {
         <CartItem />
       </Navbar>
       <div className={classes.title}>
-          <p>The Generics</p>
+        <p>The Generics</p>
       </div>
     </>
   );
