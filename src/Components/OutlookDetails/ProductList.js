@@ -2,12 +2,16 @@ import classes from "./ProductList.module.css";
 import { Button } from "react-bootstrap";
 import CartContext from "../Context/Cart-Context";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import ProductContext from "../Context/store-context";
 
 const ProductList = (props) => {
   const CartCntx = useContext(CartContext);
+  const productCtx = useContext(ProductContext);
 
-  const CartHandler = (title, imageUrl, price) => {
+  const CartHandler = (id, title, imageUrl, price) => {
     const ItemList = {
+      id,
       title,
       imageUrl,
       price,
@@ -34,17 +38,34 @@ const ProductList = (props) => {
 
     CartCntx.setCartList(ModifiedCart);
   };
-
+  const ProductDetailHandler = (props) => {
+    const ProductDetail = {
+      title: props.title,
+      imageUrl: props.imageUrl,
+      price: props.price,
+      rating: 4.2,
+      detail: "Best album of the year",
+    };
+    productCtx.changeDetail(ProductDetail);
+  };
   return (
     <div className={classes.div}>
       <header>{props.title} </header>
-      <img src={props.imageUrl} alt={props.title} />
+      <Link to={"/STORE/:id"}>
+        <img
+          src={props.imageUrl}
+          alt={props.title}
+          onClick={ProductDetailHandler.bind(null, props)}
+        />
+      </Link>
 
       <span>
         <ul>Rs{props.price}</ul>
         <Button
           className="btn-info"
-          onClick={() => CartHandler(props.title, props.imageUrl, props.price)}
+          onClick={() =>
+            CartHandler(props.id, props.title, props.imageUrl, props.price)
+          }
         >
           ADD TO CART
         </Button>
