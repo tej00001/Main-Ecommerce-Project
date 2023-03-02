@@ -34,6 +34,7 @@ const NavbarList = () => {
             >
               HOME
             </NavLink>
+            
             {authCtx.isLoggedIn && (
               <NavLink
                 to="/STORE"
