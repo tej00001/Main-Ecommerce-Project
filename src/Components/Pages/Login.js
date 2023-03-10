@@ -1,5 +1,5 @@
 import classes from "./Login.module.css";
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState } from "react";
 import AuthContext from "./auth.context";
 // import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
@@ -8,14 +8,14 @@ const Login = () => {
   const history = useHistory();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-
+  const [loading, setLoaiding] = useState(false);
   const authCtx = useContext(AuthContext);
 
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-
+    setLoaiding(true);
     fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAsg4S2rHgbPa4Q3qbUZAw-W7JXtZhR9_s",
       {
@@ -47,7 +47,7 @@ const Login = () => {
       .then((data) => {
         //   const expirationTime = new Date(new Date().getTime() + (+data.expiresIn * 1000));
         console.log(data);
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken, enteredEmail);
         //   authCtx.login(data.idToken,expirationTime.toISOString());
         history.replace("/store");
       })
@@ -83,7 +83,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <button type="submit">login</button>
+          {!loading ? <button type="submit">login</button> : <p>Loading</p>}
         </div>
       </form>
     </div>

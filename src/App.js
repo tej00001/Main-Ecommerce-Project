@@ -19,7 +19,7 @@ const App = () => {
       <CartContext.Provider value={{ cartList, setCartList }}>
         <ProductContextProvider>
           <NavbarList />
-          <Route path="/" exact>
+          <Route exact path="/">
             <Redirect to="/HOME" />
           </Route>
           <Route exact path="/HOME">

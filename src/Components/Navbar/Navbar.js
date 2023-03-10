@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Navbar, Nav, Card } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import CartItem from "../OutlookDetails/Cart";
 import classes from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
@@ -34,7 +34,7 @@ const NavbarList = () => {
             >
               HOME
             </NavLink>
-            
+
             {authCtx.isLoggedIn && (
               <NavLink
                 to="/STORE"
